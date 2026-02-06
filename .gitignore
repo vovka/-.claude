@@ -1,0 +1,32 @@
+# System-generated files
+.credentials.json
+.update.lock
+settings.local.json
+stats-cache.json
+history.jsonl
+
+# Cache and temporary files
+cache/
+debug/
+file-history/
+shell-snapshots/
+paste-cache/
+
+# IDE and editor data
+ide/
+
+# Analytics and telemetry
+telemetry/
+statsig/
+usage-data/
+
+# Session and runtime data
+plans/
+tasks/
+todos/
+projects/
+plugins/
+
+# OS files
+.DS_Store
+Thumbs.db

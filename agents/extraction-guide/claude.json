@@ -1,0 +1,7 @@
+{
+  "name": "extraction-guide",
+  "description": "Analyzes conversations to identify extractable patterns and guides extraction into ~/.claude/",
+  "tools": ["Read", "Grep", "Glob", "Bash"],
+  "model": "opus",
+  "memory": "~/.claude/agent-memory/extraction-guide"
+}
