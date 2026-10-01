@@ -65,6 +65,22 @@ wins over hitting a target.
    `models/` directory) may stay flat; the rule targets mixed levels, not
    counts alone.
 
+Why these targets: a ~100-line file fits on one screen and forces single
+responsibility; a ~10-line function does one thing and is trivial to test and
+name; short lines survive code review tools and split-screen editors; one
+class per file makes the filename the index and avoids circular imports.
+
+How to get there in practice:
+
+- Start a new file around ~80 lines so there's headroom.
+- Extract helpers aggressively; use early returns to flatten nesting.
+- Name extracted functions descriptively — the name is the documentation.
+- Break long calls across lines or pull out a well-named intermediate variable.
+- File name = class name (`User.py`, `UserValidator.ts`); free functions live
+  in `utils/` or `helpers/`.
+- Comments explain *why*, not *what*. Well-named identifiers cover the what.
+- Copy-paste is a smell: if the same logic appears twice, put it in one place.
+
 When legacy files already violate these targets, improve incrementally as you
 touch them — don't trigger a broad refactor unless asked.
 
