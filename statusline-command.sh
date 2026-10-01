@@ -158,11 +158,12 @@ seven_d_resets=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empt
 # box. Written atomically so a reader never sees a half-file, and only when the
 # payload actually carries limits — a session that has not yet made an API call
 # has none, and clobbering a good cache with nulls would be worse than stale.
+rl_cache="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/rate-limits.json"
 if [ -n "$five_h_used" ]; then
   jq -c --arg at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
     '{written_at: $at, rate_limits: .rate_limits}' <<<"$input" \
-    > /home/vova/.claude/rate-limits.json.tmp 2>/dev/null \
-    && mv /home/vova/.claude/rate-limits.json.tmp /home/vova/.claude/rate-limits.json
+    > "$rl_cache.tmp" 2>/dev/null \
+    && mv "$rl_cache.tmp" "$rl_cache"
 fi
 
 # Session token totals, tallied from the transcript (the payload's

@@ -13,7 +13,7 @@
 # Anything older than STALE_MIN is reported as STALE and must not be trusted.
 set -uo pipefail
 
-CACHE=/home/vova/.claude/rate-limits.json
+CACHE="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/rate-limits.json"
 STALE_MIN=15
 
 [ -r "$CACHE" ] || { echo "STATUS: UNKNOWN"; echo "reason: no cache at $CACHE — no session has rendered a statusline yet"; exit 0; }
