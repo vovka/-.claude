@@ -1,32 +1,17 @@
-# System-generated files
-.credentials.json
-.update.lock
-settings.local.json
-stats-cache.json
-history.jsonl
+# Allowlist: ignore everything, then opt in what is shared config.
+# ~/.claude is mostly runtime state, caches, transcripts and credentials.
+/*
+!/.gitignore
+!/CLAUDE.md
+!/agents/
+!/agent-memory/
+!/commands/
+!/hooks/
+!/skills/
+!/statusline-command.sh
+!/quota.sh
 
-# Cache and temporary files
-cache/
-debug/
-file-history/
-shell-snapshots/
-paste-cache/
-
-# IDE and editor data
-ide/
-
-# Analytics and telemetry
-telemetry/
-statsig/
-usage-data/
-
-# Session and runtime data
-plans/
-tasks/
-todos/
-projects/
-plugins/
-
-# OS files
-.DS_Store
-Thumbs.db
+# Managed by claude.ai sync, not hand-edited
+/skills/synced/
+!/.gitmodules
+!/local-plugins/

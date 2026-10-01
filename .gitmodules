@@ -1,0 +1,3 @@
+[submodule "local-plugins/caveman"]
+	path = local-plugins/caveman
+	url = https://github.com/JuliusBrussee/caveman.git
