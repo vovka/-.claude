@@ -41,6 +41,22 @@ maintainability over cleverness.
 - Verify changes with the narrowest relevant tests, lint, or type checks.
 - If verification can't be run, say exactly why and what remains unverified.
 
+## Git Worktrees
+
+- Create Git worktrees inside the project directory by default, under
+  `.worktrees/<name>` (e.g. `git worktree add .worktrees/<name> -b <branch>`).
+- Ensure `.worktrees/` is listed in `.git/info/exclude` (not `.gitignore`) so it
+  stays untracked without changing the repo.
+
+## Docker
+
+- Develop every coding project inside Docker containers by default.
+- New project: create a Dockerfile, a Docker Compose file, and everything else
+  needed to build and run it (e.g. `.dockerignore`, env example).
+- Existing project without Docker setup: add the same by default.
+- Run builds, tests, and dev commands through the containers, not on the host.
+- Skip Docker only when the user explicitly says not to use it.
+
 ## Coding Standards (Targets, Not Hard Rules)
 
 These are defaults to lean toward, not limits to enforce mechanically — never
@@ -125,3 +141,16 @@ conventions and pitfalls, integration points, and a last-updated date.
 Priority: 1. Correctness. 2. Directly answering the request. 3. Minimum necessary content.
 
 Treat every response as if anything not required by the request is a defect.
+
+## Clean Architecture
+
+- New apps: apply Clean Architecture principles by default (dependency rule,
+  domain/use-case/adapter/framework layering, dependencies pointing inward).
+- Existing apps: if there is no evidence of Clean Architecture, ask the user
+  whether to apply it before restructuring anything.
+
+## Writing and Visuals
+
+- Write documentation and user-facing prose in ASD-STE100 (Simplified Technical English).
+- Prefer visual explanations where reasonable: charts and diagrams such as UML, C4,
+  sequence, flow, and ER diagrams.
